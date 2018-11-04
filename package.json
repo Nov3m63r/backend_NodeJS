@@ -1,0 +1,23 @@
+{
+  "name": "backend_nodejs",
+  "version": "1.0.0",
+  "description": "nodejs mailer",
+  "main": "controller.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nov3m63r/backend_NodeJS.git"
+  },
+  "author": "Nov3m63r",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nov3m63r/backend_NodeJS/issues"
+  },
+  "homepage": "https://github.com/Nov3m63r/backend_NodeJS#readme",
+  "dependencies": {
+    "nodemailer": "^4.6.8",
+    "xoauth2": "^1.2.0"
+  }
+}
