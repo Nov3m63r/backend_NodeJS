@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/Nov3m63r/backend_NodeJS#readme",
   "dependencies": {
-    "nodemailer": "^4.6.8",
-    "xoauth2": "^1.2.0"
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "nodemailer": "^4.6.8"
   }
 }
