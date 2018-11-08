@@ -35,8 +35,8 @@ app.post('/send', (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'njsmailer@gmail.com',
-            pass: 'jsnodemail'
+            user: '***@gmail.com',
+            pass: '***'
         },
         tls: {
             rejectUnauthorized: false
@@ -45,8 +45,8 @@ app.post('/send', (req, res) => {
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: 'Friday', // sender address
-        to: 'njsmailer@gmail.com', // list of receivers
+        from: '***', // sender address
+        to: '***@gmail.com', // list of receivers
         subject: 'Node Contact Request', // Subject line
         text: 'Hello world', // plain text body
         html: output // html body
