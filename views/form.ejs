@@ -7,16 +7,16 @@
     <title>Sending an email from site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="app.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
     <div class="contact">
-        <form method="POST" action="app.js">
+        <form method="POST">
             <input name="username" class="input" type="text" placeholder="ФИО" />
             <input name="contacts" class="input" type="text" placeholder="Моб. номер или email" />
             <textarea name="message" class="input" placeholder="Описание проблемы"></textarea>
-            <input type="submit" class="submit" value="Send data" />
+            <input type="submit" class="submit" formaction="/send" value="Send data" />
         </form>
     </div>
 

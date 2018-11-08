@@ -1,33 +1,23 @@
-'use strict';
 const nodemailer = require('nodemailer');
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-//const port = 8081;
 const port = 3000;
 
-// // View engine setup
-// app.engine('handlebars', exphbs());
-// app.set('view engine', 'handlebars');
+// set ejs as rendering engine
+app.set('view engine', 'ejs');
 
-// // Static folder
-// app.use('/public', express.static(path.join(__dirname, 'public')));
-
-// Body Parser Middleware
+// Body Parser Middleware - parse html forms
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.render('contact');
+// render the ejs page
+app.get('/', function (req, res) {
+    res.render('form.ejs');
 });
-
-app.get('/quit', function(req,res) {
-    res.send('closing..');
-    app.close();
-  });
 
 app.post('/send', (req, res) => {
     const output = `
@@ -40,13 +30,10 @@ app.post('/send', (req, res) => {
     <h3>Message</h3>
     <p>${req.body.message}</p>
   `;
-
+    
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
-        // host: 'mail.YOURDOMAIN.com',
-        // port: 587,
-        // secure: false, // true for 465, false for other ports
         auth: {
             user: 'njsmailer@gmail.com',
             pass: 'jsnodemail'
@@ -73,12 +60,10 @@ app.post('/send', (req, res) => {
         console.log('Message sent: %s', info.messageId);
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-        res.render('contact', {
+        res.render('form.ejs', {
             msg: 'Email has been sent'
-            //alert('Email has been sent');
         });
     });
-
 });
 
 app.listen(port, (err) => {
@@ -86,7 +71,5 @@ app.listen(port, (err) => {
         return console.log('Something bad happened', err);
     }
 
-    //let host = server.address().address;
-    //console.log('Server is listening at http://%s:%s', host, port);
     console.log('Server is listening on', port);
 });
